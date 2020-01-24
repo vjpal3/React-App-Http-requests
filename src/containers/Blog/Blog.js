@@ -38,6 +38,18 @@ class Blog extends Component {
     });
   };
 
+  deleteDataHandler = id => {
+    axios
+      .delete('https://jsonplaceholder.typicode.com/posts/' + id)
+      .then(response => {
+        console.log(response);
+      });
+    // const posts = this.state.posts.filter(post => post.id !== id);
+    // this.setState({
+    //   posts
+    // });
+  };
+
   render() {
     const posts = this.state.posts.map(post => {
       return (
@@ -60,6 +72,7 @@ class Blog extends Component {
             id={this.state.selectedPostId}
             title={this.state.selectedPostTitle}
             body={this.state.selectedPostBody}
+            clicked={() => this.deleteDataHandler(this.state.selectedPostId)}
           />
         </section>
         <section>

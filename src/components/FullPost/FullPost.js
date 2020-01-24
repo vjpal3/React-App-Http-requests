@@ -8,7 +8,9 @@ const fullPost = props => {
       <h1>{props.title}</h1>
       <p>{props.body}</p>
       <div className='Edit'>
-        <button className='Delete'>Delete</button>
+        <button className='Delete' onClick={props.clicked}>
+          Delete
+        </button>
       </div>
     </div>
   ) : (
